@@ -5,6 +5,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const geist = Geist({ subsets: ["latin"] });
 
@@ -33,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={geist.className}>
+      {/* <body className={geist.className}>
         <Script
           id="theme-script"
           strategy="beforeInteractive"
@@ -41,6 +42,18 @@ export default function RootLayout({
         />
         <Navbar />
         {children}
+        <Toaster richColors position="top-right" />
+      </body> */}
+
+      <body className={`${geist.className} flex min-h-screen flex-col`}>
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
         <Toaster richColors position="top-right" />
       </body>
     </html>
