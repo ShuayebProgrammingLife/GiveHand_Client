@@ -4,6 +4,8 @@ import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
+import { Navbar } from "@/components/navbar";
+
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -37,6 +39,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
+        <Navbar />
         {children}
         <Toaster richColors position="top-right" />
       </body>
