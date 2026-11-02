@@ -9,7 +9,6 @@ import type { EventItem } from "@/lib/types";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { EventCard, EventCardSkeleton } from "@/components/event-card";
 
-
 import {
   Dialog,
   DialogContent,
@@ -189,3 +188,4 @@ export default function ManageEventsPage() {
     </div>
   );
 }
+
