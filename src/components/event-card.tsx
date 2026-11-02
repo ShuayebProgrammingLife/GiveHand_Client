@@ -5,7 +5,15 @@ import { formatEventDate, formatEventTime } from "@/lib/format";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export function EventCard({ event }: { event: EventItem }) {
+export function EventCard({
+  event,
+  ended = false,
+  action,
+}: {
+  event: EventItem;
+  ended?: boolean;
+  action?: React.ReactNode;
+}) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-shadow hover:shadow-md">
       <div className="relative h-48 w-full shrink-0 bg-muted">
@@ -14,11 +22,16 @@ export function EventCard({ event }: { event: EventItem }) {
           src={event.thumbnail}
           alt={event.title}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className={`h-full w-full object-cover ${ended ? "grayscale" : ""}`}
         />
         <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground shadow">
           {event.eventType}
         </span>
+        {ended && (
+          <span className="absolute right-3 top-3 rounded-full bg-foreground px-3 py-1 text-xs font-semibold text-background shadow">
+            Ended
+          </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
@@ -41,12 +54,15 @@ export function EventCard({ event }: { event: EventItem }) {
           </li>
         </ul>
 
-        <Link
-          href={`/events/${event._id}`}
-          className={`${buttonVariants()} mt-auto w-full`}
-        >
-          View Event
-        </Link>
+        <div className="mt-auto space-y-2">
+          <Link
+            href={`/events/${event._id}`}
+            className={`${buttonVariants()} w-full`}
+          >
+            View Event
+          </Link>
+          {action}
+        </div>
       </div>
     </article>
   );

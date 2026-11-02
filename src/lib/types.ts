@@ -14,3 +14,10 @@ export type EventTypeCount = {
   type: string;
   count: number;
 }
+
+export type JoinedItem = {
+  _id: string;
+  eventId: string;
+  joinedAt: string;
+  event: EventItem;
+};
