@@ -5,6 +5,8 @@ import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 
+import { getNextPath } from "@/lib/redirect";
+
 const GoogleButton = () => {
   const [loading, setLoading] = useState(false);
 
@@ -12,7 +14,7 @@ const GoogleButton = () => {
     setLoading(true);
     const { error } = await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/",
+      callbackURL: getNextPath(),
     });
     if (error) {
       toast.error(error.message || "Google sign in failed. Please try again.");

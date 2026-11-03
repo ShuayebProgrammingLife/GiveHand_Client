@@ -21,7 +21,7 @@ import {
 import PasswordInput  from "@/components/password-input";
 import  GoogleButton  from "@/components/google-button";
 
-
+import { getNextPath } from "@/lib/redirect";
 const LoginPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -48,7 +48,7 @@ const LoginPage = () => {
       return;
     }
     toast.success("Welcome back! You are now logged in.");
-    router.push("/");
+    router.push(getNextPath());
     router.refresh();
   };
 
