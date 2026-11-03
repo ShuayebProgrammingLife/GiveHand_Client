@@ -21,9 +21,9 @@ type Stats = {
 function HeroImage() {
   const [failed, setFailed] = useState(false);
   return (
-    <div className="overflow-hidden rounded-lg border border-[#1E3A5F] bg-[#14253D]">
+    <div className="overflow-hidden rounded-lg border border-border bg-muted">
       {failed ? (
-        <div className="flex aspect-[16/11] items-center justify-center text-[#8DB1DE]">
+        <div className="flex aspect-[16/11] items-center justify-center text-muted-foreground">
           <ImageOff className="h-10 w-10" />
         </div>
       ) : (
@@ -41,14 +41,14 @@ function HeroImage() {
 
 function NextDrive({ event }: { event: EventItem | null | undefined }) {
   const box =
-    "flex items-center gap-2 rounded-[4px] border border-[#1E3A5F] bg-[#14253D] p-3 text-sm text-[#F7F9FC]";
+    "flex items-center gap-2 rounded-[4px] border border-border bg-card p-3 text-sm text-card-foreground";
 
   if (event === undefined) {
-    return <Skeleton className="h-12 w-full bg-[#14253D]" />;
+    return <Skeleton className="h-12 w-full bg-muted" />;
   }
   if (event === null) {
     return (
-      <Link href="/create-event" className={cn(box, "hover:border-[#8DB1DE]")}>
+      <Link href="/create-event" className={cn(box, "hover:border-ring")}>
         <Navigation className="h-[18px] w-[18px] shrink-0 text-primary" />
         <span>No drive is scheduled yet. Start one in your area.</span>
       </Link>
@@ -57,7 +57,7 @@ function NextDrive({ event }: { event: EventItem | null | undefined }) {
   return (
     <Link
       href={`/events/${event._id}`}
-      className={cn(box, "hover:border-[#8DB1DE]")}
+      className={cn(box, "hover:border-ring")}
     >
       <Navigation className="h-[18px] w-[18px] shrink-0 text-primary" />
       <span className="truncate">
@@ -115,21 +115,21 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="w-full bg-[#0E1E33] text-[#F7F9FC]">
+      <section className="w-full bg-background text-foreground">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-12 lg:py-24">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
             {/* Left */}
             <div className="flex flex-col gap-6 lg:col-span-7">
-              <p className="inline-flex w-fit items-center gap-2 rounded-[4px] border border-[#1E3A5F] bg-[#14253D] px-3 py-1.5 text-sm font-medium text-[#8DB1DE]">
+              <p className="inline-flex w-fit items-center gap-2 rounded-[4px] border border-border bg-muted px-3 py-1.5 text-sm font-medium text-muted-foreground">
                 <span className="h-2 w-2 rounded-[2px] bg-primary" />
                 Dhaka winter relief network
               </p>
 
-              <h1 className="font-display text-4xl font-extrabold leading-10 tracking-[-0.04em] text-[#F7F9FC] sm:text-5xl sm:leading-[56px] lg:text-[64px] lg:leading-[68px]">
+              <h1 className="font-display text-4xl font-extrabold leading-10 tracking-[-0.04em] text-foreground sm:text-5xl sm:leading-[56px] lg:text-[64px] lg:leading-[68px]">
                 Bringing warmth to every corner of Dhaka this winter.
               </h1>
 
-              <p className="max-w-xl text-lg leading-8 text-[#8DB1DE]">
+              <p className="max-w-xl text-lg leading-8 text-muted-foreground">
                 Join grassroots volunteers and neighborhood organizers
                 distributing blankets, heavy sweaters, hot meals and primary
                 health checks to rough sleepers and families in need.
@@ -153,8 +153,8 @@ export function HeroSection() {
                 </Link>
               </div>
 
-              <div className="mt-4 border-t border-[#1E3A5F] pt-6">
-                <p className="mb-2 text-sm text-[#8DB1DE]">Next drive</p>
+              <div className="mt-4 border-t border-border pt-6">
+                <p className="mb-2 text-sm text-muted-foreground">Next drive</p>
                 <NextDrive event={nextEvent} />
               </div>
             </div>
@@ -162,19 +162,19 @@ export function HeroSection() {
             {/* Right */}
             <div className="flex flex-col gap-4 lg:col-span-5">
               <HeroImage />
-              <div className="flex items-start gap-4 rounded-md border border-[#1E3A5F] bg-[#0E1E33] p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-[#1E3A5F] bg-[#14253D] text-primary">
+              <div className="flex items-start gap-4 rounded-md border border-border bg-card p-5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-border bg-muted text-primary">
                   <Users className="h-6 w-6" />
                 </div>
                 <div>
                   {stats ? (
-                    <p className="font-display text-xl font-bold text-[#F7F9FC]">
+                    <p className="font-display text-xl font-bold text-card-foreground">
                       {stats.totalParticipants.toLocaleString()} people joined
                     </p>
                   ) : (
-                    <Skeleton className="h-6 w-40 bg-[#14253D]" />
+                    <Skeleton className="h-6 w-40 bg-muted" />
                   )}
-                  <p className="mt-1 text-sm text-[#8DB1DE]">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     Every sign-up on GiveHand is tied to a real event created by
                     a community member.
                   </p>
