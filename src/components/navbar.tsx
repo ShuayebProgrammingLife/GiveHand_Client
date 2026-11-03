@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { QuiltStrip } from "@/components/quilt-strip";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -58,31 +59,31 @@ export function Navbar() {
     .toUpperCase();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
-      <nav className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4">
+    <header className="sticky top-0 z-50 w-full bg-background">
+      <nav className="mx-auto grid h-20 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 lg:px-12">
         {/* Left: logo */}
         <Link href="/" className="flex items-center gap-2 justify-self-start">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0E1E33] text-primary">
             <HandHeart className="h-5 w-5" />
           </span>
-          <span className="text-xl font-bold tracking-tight">
-            Give<span className="text-accent">Hand</span>
+          <span className="font-display text-2xl font-bold tracking-tight">
+            GiveHand
           </span>
         </Link>
 
-        {/* navlink */}
+        {/* Middle: navlink */}
         <Link
           href="/events"
-          className={`text-sm font-medium transition-colors hover:text-primary sm:text-base ${
+          className={`px-2 py-2 text-sm transition-colors sm:text-base ${
             pathname.startsWith("/events")
-              ? "text-primary underline underline-offset-8"
-              : "text-muted-foreground"
+              ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8"
+              : "font-medium text-muted-foreground hover:text-foreground"
           }`}
         >
           Upcoming Events
         </Link>
 
-        {/* Theme toggle + auth */}
+        {/* Right: theme toggle + auth */}
         <div className="flex items-center gap-1 justify-self-end sm:gap-2">
           <ThemeToggle />
 
@@ -106,7 +107,7 @@ export function Navbar() {
                   </DropdownMenuTrigger>
 
                   {/* Hover tooltip with display name */}
-                  <span className="pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs text-background opacity-0 shadow transition-opacity group-hover:opacity-100">
+                  <span className="pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-sm bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity group-hover:opacity-100">
                     {user.name}
                   </span>
                 </div>
@@ -142,10 +143,11 @@ export function Navbar() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Separate Logout button*/}
+              {/* Separate Logout button next to the profile picture */}
               <Button
                 variant="outline"
                 size="sm"
+                className="shadow-none"
                 onClick={handleLogout}
                 aria-label="Logout"
               >
@@ -163,6 +165,7 @@ export function Navbar() {
           )}
         </div>
       </nav>
+      <QuiltStrip className="h-1.5" />
     </header>
   );
 }

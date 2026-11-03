@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
-
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const geist = Geist({ subsets: ["latin"] });
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+});
 
 export const metadata: Metadata = {
   title: "GiveHand | Give a hand, warm a heart",
@@ -34,18 +37,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* <body className={geist.className}>
-        <Script
-          id="theme-script"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-        />
-        <Navbar />
-        {children}
-        <Toaster richColors position="top-right" />
-      </body> */}
-
-      <body className={`${geist.className} flex min-h-screen flex-col`}>
+      <body
+        className={`${geist.className} ${bricolage.variable} flex min-h-screen flex-col`}
+      >
         <Script
           id="theme-script"
           strategy="beforeInteractive"

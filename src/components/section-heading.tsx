@@ -6,13 +6,12 @@ export function SectionHeading({
   subtitle?: string;
 }) {
   return (
-    <div className="mb-10 text-center">
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-      <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-accent" />
+    <div className="flex max-w-2xl flex-col gap-2">
+      <h2 className="font-display text-[28px] font-bold leading-8 tracking-[-0.02em] sm:text-4xl sm:leading-10 sm:tracking-[-0.03em]">
+        {title}
+      </h2>
       {subtitle && (
-        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          {subtitle}
-        </p>
+        <p className="text-base leading-6 text-muted-foreground">{subtitle}</p>
       )}
     </div>
   );
