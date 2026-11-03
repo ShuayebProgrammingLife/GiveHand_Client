@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { HandHeart, Mail, MapPin } from "lucide-react";
 
-import { QuiltStrip } from "@/components/quilt-strip";
-
 const WHATSAPP_NUMBER = "+8801330546984";
 const WHATSAPP_MESSAGE =
   "Hello GiveHand team! I would like to know more about your events.";
@@ -32,7 +30,7 @@ const socialLinks = [
 
 const exploreLinks = [
   {href: "/events", label:"Upcoming Events"},
-  {href: "/create-events", label:"Create Event"},
+  {href: "/create-event", label:"Create Event"},
   {href: "/manage-events", label:"Manage Events"},
   {href: "/joined-events", label:"Joined Events"},
 ];
@@ -45,32 +43,32 @@ const causeLinks = [
 ];
 
 const linkClass =
-  "text-sm text-slate-700 transition-colors hover:text-orange-600 dark:text-slate-300 dark:hover:text-orange-400";
+  "text-sm text-muted-foreground transition-colors hover:text-primary";
 
   const socialClass =
-    "flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white dark:border-slate-700 dark:text-slate-300 dark:hover:border-orange-500 dark:hover:bg-orange-500 dark:hover:text-white";
+    "flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground";
 
 const headingClass =
-  "mb-3 text-base font-semibold text-slate-900 dark:text-white";
+  "mb-3 text-base font-semibold text-foreground";
 
 export function Footer (){
   return (
-    <footer className="mt-8 border-t-4 border-orange-500 bg-slate-100 text-slate-700 dark:bg-slate-950 dark:text-slate-300">
+    <footer className="mt-8 border-t-4 border-primary bg-muted text-muted-foreground">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         {/* 1. Brand */}
         <div
           className="rounded-xl
-        border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/60 "
+        border border-border bg-card p-5 text-card-foreground"
         >
           <Link href="/" className="mb-3 flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0E1E33] text-primary">
               <HandHeart className="h-5 w-5" />
             </span>
-            <span className="text-xl font-bold text-slate-900 dark:text-white">
+            <span className="text-xl font-bold text-foreground">
               Give<span className="text-orange-400">Hand</span>
             </span>
           </Link>
-          <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">
+          <p className="text-sm leading-6 text-muted-foreground">
             GiveHand connects kind-hearted people with those in need. Organize
             winter clothes drives, join community events and spread warmth
             across your city.
@@ -108,9 +106,9 @@ export function Footer (){
         </div>
 
         {/* 2. Explore Platform */}
-        <div className="rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900/60 p-5">
+        <div className="rounded-xl border border-border bg-card p-5 text-card-foreground">
           <h3 className={headingClass}>Explore Platform</h3>
-          <p className="mb-3 text-sm leading-6 text-slate-400">
+          <p className="mb-3 text-sm leading-6 text-muted-foreground">
             Find events near you, host your own and track everything you joined.
           </p>
           <ul className="space-y-2">
@@ -125,9 +123,9 @@ export function Footer (){
         </div>
 
         {/* 3. Active Causes */}
-        <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/60">
+        <div className="rounded-xl border border-border bg-card p-5 text-card-foreground">
           <h3 className={headingClass}>Active Causes</h3>
-          <p className="mb-3 text-sm leading-6 text-slate-400">
+          <p className="mb-3 text-sm leading-6 text-muted-foreground">
             Every season brings new needs. Pick a cause that matters to you.
           </p>
           <ul className="space-y-2">
@@ -145,26 +143,26 @@ export function Footer (){
         </div>
 
         {/* 4. Community Spirit */}
-        <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/60">
+        <div className="rounded-xl border border-border bg-card p-5 text-card-foreground">
           <h3 className={headingClass}>Community Spirit</h3>
-          <p className="mb-3 text-sm leading-6 text-slate-400">
+          <p className="mb-3 text-sm leading-6 text-muted-foreground">
             Small acts of kindness add up. Together we can make every winter
             warmer for families who need it most.
           </p>
-          <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-orange-400" />
+              <MapPin className="h-4 w-4 text-primary" />
               Dhaka, Bangladesh
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-orange-400" />
+              <Mail className="h-4 w-4 text-primary" />
               shuayebhossaineng@gmail.com
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-slate-200 dark:border-slate-800 py-4 text-center text-xs text-slate-500">
+      <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
         &copy; {new Date().getFullYear()} GiveHand. Give a hand, warm a heart.
       </div>
     </footer>

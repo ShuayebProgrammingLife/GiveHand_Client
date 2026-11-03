@@ -32,7 +32,7 @@ export function HowItWorks() {
               key={step.title}
               className="flex flex-col gap-4 rounded-md border bg-card p-6"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#0E1E33] font-display text-xl font-bold text-[#F7F9FC]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-primary font-display text-xl font-bold text-primary-foreground">
                 {index + 1}
               </div>
               <h3 className="font-display text-xl font-bold">{step.title}</h3>
