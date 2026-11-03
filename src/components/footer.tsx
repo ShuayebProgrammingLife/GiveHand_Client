@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { HandHeart, Mail, MapPin } from "lucide-react";
 
+import { QuiltStrip } from "@/components/quilt-strip";
+
 const WHATSAPP_NUMBER = "+8801330546984";
 const WHATSAPP_MESSAGE =
   "Hello GiveHand team! I would like to know more about your events.";

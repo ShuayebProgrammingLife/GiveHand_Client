@@ -1,8 +1,9 @@
 "use client";
 
 import { toast } from "sonner";
-import { Mail } from "lucide-react";
 import { z } from "zod";
+import { cn } from "@/lib/utils";
+import { primaryHeroBtn } from "@/lib/ui";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -19,49 +20,38 @@ export function Newsletter() {
       toast.error(parsed.error.issues[0].message);
       return;
     }
-    toast.success("Thank you for subscribing to the GiveHand newsletter!");
+    toast.success("You are subscribed. Watch your inbox for the next drive.");
     form.reset();
   };
 
   return (
-    <section className="px-4 pb-4">
-      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 px-6 py-14 text-center text-white">
-        <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-orange-500/20 blur-3xl" />
-
-        <div className="relative">
-          <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-            <Mail className="h-6 w-6 text-orange-300" />
-          </span>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Stay in the loop
+    <section className="w-full border-t bg-muted py-16">
+      <div className="mx-auto grid max-w-[1280px] items-center gap-8 px-6 lg:grid-cols-2 lg:px-12">
+        <div className="flex max-w-xl flex-col gap-2">
+          <h2 className="font-display text-[28px] font-bold leading-8 tracking-[-0.02em] sm:text-4xl sm:leading-10 sm:tracking-[-0.03em]">
+            Hear about the next drive first
           </h2>
-          <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-orange-400" />
-          <p className="mx-auto mt-4 max-w-xl text-blue-100">
-            Get updates about new events, volunteer calls and stories from the
-            community, straight to your inbox.
+          <p className="leading-6 text-muted-foreground">
+            One short email when a new event goes live. Nothing else.
           </p>
-
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-          >
-            <Input
-              name="email"
-              type="email"
-              placeholder="Enter your email address"
-              aria-label="Email address"
-              className="h-10 border-white/20 bg-white/10 text-white placeholder:text-blue-200"
-            />
-            <Button
-              type="submit"
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              Subscribe
-            </Button>
-          </form>
         </div>
+
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="flex flex-col gap-3 sm:flex-row"
+        >
+          <Input
+            name="email"
+            type="email"
+            placeholder="Your email address"
+            aria-label="Email address"
+            className="h-11 bg-card text-base"
+          />
+          <Button type="submit" className={cn(primaryHeroBtn, "shrink-0")}>
+            Subscribe
+          </Button>
+        </form>
       </div>
     </section>
   );

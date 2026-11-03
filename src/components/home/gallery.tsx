@@ -6,33 +6,33 @@ import { SectionHeading } from "@/components/section-heading";
 
 const photos = [
   {
-    src: "/gallery/gallery-1.jpg",
-    title: "Winter Clothes Drive",
+    src: "/gallery/winter_clothing_drive.png",
+    title: "Winter clothes drive",
     place: "Mirpur 10, Dhaka",
   },
   {
-    src: "/gallery/gallery-2.jpg",
-    title: "Blanket Distribution",
+    src: "/gallery/blanket_distribution.png",
+    title: "Blanket distribution",
     place: "Mohammadpur, Dhaka",
   },
   {
-    src: "/gallery/gallery-3.jpg",
-    title: "Hot Meals for Families",
+    src: "/gallery/hot_meals.png",
+    title: "Hot meals for families",
     place: "Kamalapur, Dhaka",
   },
   {
-    src: "/gallery/gallery-4.jpg",
-    title: "Free Health Camp",
+    src: "/gallery/free_health_camp.jpg",
+    title: "Free health camp",
     place: "Uttara, Dhaka",
   },
   {
-    src: "/gallery/gallery-5.jpg",
-    title: "Book and School Supplies",
+    src: "/gallery/books_supplies.jpg",
+    title: "Books and school supplies",
     place: "Dhanmondi, Dhaka",
   },
   {
-    src: "/gallery/gallery-6.jpg",
-    title: "Tree Plantation Day",
+    src: "/gallery/tree_plantation.jpeg",
+    title: "Tree plantation day",
     place: "Hatirjheel, Dhaka",
   },
 ];
@@ -47,26 +47,27 @@ function GalleryItem({
   place: string;
 }) {
   const [failed, setFailed] = useState(false);
-
   return (
-    <figure className="group relative aspect-[4/3] overflow-hidden rounded-xl border bg-muted">
-      {failed ? (
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-900 to-blue-700 text-white/40">
-          <ImageOff className="h-10 w-10" />
-        </div>
-      ) : (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={src}
-          alt={title}
-          loading="lazy"
-          onError={() => setFailed(true)}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      )}
-      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white">
+    <figure>
+      <div className="aspect-[4/3] overflow-hidden rounded-md border bg-muted">
+        {failed ? (
+          <div className="flex h-full w-full items-center justify-center bg-[#0E1E33] text-[#8DB1DE]">
+            <ImageOff className="h-10 w-10" />
+          </div>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt={title}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="h-full w-full object-cover"
+          />
+        )}
+      </div>
+      <figcaption className="mt-3">
         <p className="font-semibold">{title}</p>
-        <p className="text-xs text-white/80">{place}</p>
+        <p className="text-sm text-muted-foreground">{place}</p>
       </figcaption>
     </figure>
   );
@@ -74,15 +75,17 @@ function GalleryItem({
 
 export function Gallery() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-20">
-      <SectionHeading
-        title="Moments of Kindness"
-        subtitle="A look back at some of the events our community has already completed together."
-      />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {photos.map((photo) => (
-          <GalleryItem key={photo.src} {...photo} />
-        ))}
+    <section className="w-full bg-background py-16 lg:py-24">
+      <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-6 lg:px-12">
+        <SectionHeading
+          title="Moments from past drives"
+          subtitle="A look back at events our community has already completed together."
+        />
+        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {photos.map((photo) => (
+            <GalleryItem key={photo.src} {...photo} />
+          ))}
+        </div>
       </div>
     </section>
   );

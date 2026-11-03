@@ -29,7 +29,7 @@ function HeroImage() {
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src="/hero.jpg"
+          src="/hero.png"
           alt="Volunteers packing warm blankets for winter distribution in Dhaka"
           onError={() => setFailed(true)}
           className="block aspect-[16/11] w-full object-cover"
