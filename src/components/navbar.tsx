@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -70,7 +70,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Middle: navlink */}
+        {/* navlink */}
         <Link
           href="/events"
           className={`text-sm font-medium transition-colors hover:text-primary sm:text-base ${
@@ -82,61 +82,82 @@ export function Navbar() {
           Upcoming Events
         </Link>
 
-        {/* Right: theme toggle + auth */}
+        {/* Theme toggle + auth */}
         <div className="flex items-center gap-1 justify-self-end sm:gap-2">
           <ThemeToggle />
 
           {isPending ? (
             <Skeleton className="h-9 w-9 rounded-full" />
           ) : user ? (
-            <DropdownMenu>
-              <div className="group relative">
-                <DropdownMenuTrigger
-                  className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  aria-label="Open profile menu"
-                >
-                  <Avatar className="h-9 w-9">
-                    <AvatarImage src={user.image ?? undefined} alt={user.name} />
-                    <AvatarFallback>{initials}</AvatarFallback>
-                  </Avatar>
-                </DropdownMenuTrigger>
-
-                {/* Hover tooltip with display name */}
-                <span className="pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs text-background opacity-0 shadow transition-opacity group-hover:opacity-100">
-                  {user.name}
-                </span>
-              </div>
-
-              <DropdownMenuContent align="end" className="w-64">
-                <div className="px-2 py-1.5">
-                  <p className="truncate text-sm font-semibold">{user.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">
-                    {user.email}
-                  </p>
-                </div>
-                <DropdownMenuSeparator />
-                {menuItems.map(({ href, label, icon: Icon }) => (
-                  <DropdownMenuItem
-                    key={href}
-                    className="cursor-pointer"
-                    onClick={() => router.push(href)}
+            <>
+              <DropdownMenu>
+                <div className="group relative">
+                  <DropdownMenuTrigger
+                    className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    aria-label="Open profile menu"
                   >
-                    <Icon className="mr-2 h-4 w-4" />
-                    {label}
+                    <Avatar className="h-9 w-9">
+                      <AvatarImage
+                        src={user.image ?? undefined}
+                        alt={user.name}
+                      />
+                      <AvatarFallback>{initials}</AvatarFallback>
+                    </Avatar>
+                  </DropdownMenuTrigger>
+
+                  {/* Hover tooltip with display name */}
+                  <span className="pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs text-background opacity-0 shadow transition-opacity group-hover:opacity-100">
+                    {user.name}
+                  </span>
+                </div>
+
+                <DropdownMenuContent align="end" className="w-64">
+                  <div className="px-2 py-1.5">
+                    <p className="truncate text-sm font-semibold">
+                      {user.name}
+                    </p>
+                    <p className="truncate text-xs text-muted-foreground">
+                      {user.email}
+                    </p>
+                  </div>
+                  <DropdownMenuSeparator />
+                  {menuItems.map(({ href, label, icon: Icon }) => (
+                    <DropdownMenuItem
+                      key={href}
+                      className="cursor-pointer"
+                      onClick={() => router.push(href)}
+                    >
+                      <Icon className="mr-2 h-4 w-4" />
+                      {label}
+                    </DropdownMenuItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    className="cursor-pointer text-destructive focus:text-destructive"
+                    onClick={handleLogout}
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Logout
                   </DropdownMenuItem>
-                ))}
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  className="cursor-pointer text-destructive focus:text-destructive"
-                  onClick={handleLogout}
-                >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Logout
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* Separate Logout button*/}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleLogout}
+                aria-label="Logout"
+              >
+                <LogOut className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Logout</span>
+              </Button>
+            </>
           ) : (
-            <Link href="/login" className={buttonVariants()}>
+            <Link
+              href="/login"
+              className={buttonVariants({ variant: "outline" })}
+            >
               Login
             </Link>
           )}
