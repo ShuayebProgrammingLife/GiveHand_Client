@@ -41,7 +41,7 @@ function HeroImage() {
 
 function NextDrive({ event }: { event: EventItem | null | undefined }) {
   const box =
-    "flex items-center gap-2 rounded-[4px] border border-border bg-card p-3 text-sm text-card-foreground";
+    "flex min-w-0 items-center gap-2 rounded-[4px] border border-border bg-card p-3 text-sm text-card-foreground";
 
   if (event === undefined) {
     return <Skeleton className="h-12 w-full bg-muted" />;
@@ -119,7 +119,7 @@ export function HeroSection() {
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-12 lg:py-24">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
             {/* Left */}
-            <div className="flex flex-col gap-6 lg:col-span-7">
+            <div className="flex min-w-0 flex-col gap-6 lg:col-span-7">
               <p className="inline-flex w-fit items-center gap-2 rounded-[4px] border border-border bg-muted px-3 py-1.5 text-sm font-medium text-muted-foreground">
                 <span className="h-2 w-2 rounded-[2px] bg-primary" />
                 Dhaka winter relief network
@@ -160,7 +160,7 @@ export function HeroSection() {
             </div>
 
             {/* Right */}
-            <div className="flex flex-col gap-4 lg:col-span-5">
+            <div className="flex min-w-0 flex-col gap-4 lg:col-span-5">
               <HeroImage />
               <div className="flex items-start gap-4 rounded-md border border-border bg-card p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-border bg-muted text-primary">

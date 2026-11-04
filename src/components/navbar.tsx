@@ -60,13 +60,13 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background">
-      <nav className="mx-auto grid h-20 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 lg:px-12">
+      <nav className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-4 lg:px-12">
         {/* Left: logo */}
         <Link href="/" className="flex items-center gap-2 justify-self-start">
           <span className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0E1E33] text-primary">
             <HandHeart className="h-5 w-5" />
           </span>
-          <span className="font-display text-2xl font-bold tracking-tight">
+          <span className="hidden font-display text-2xl font-bold tracking-tight sm:inline">
             GiveHand
           </span>
         </Link>
