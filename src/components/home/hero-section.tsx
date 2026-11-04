@@ -29,10 +29,10 @@ function HeroImage() {
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src="/hero.jpeg"
+          src="/hero.png"
           alt="Volunteers organizing community relief and supplies"
           onError={() => setFailed(true)}
-          className="block w-full object-contain"
+          className="block aspect-[16/11] w-full object-cover"
         />
       )}
     </div>
