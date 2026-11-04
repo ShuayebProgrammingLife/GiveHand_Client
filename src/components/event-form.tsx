@@ -190,9 +190,9 @@ export function EventForm({
                     setThumbnail(preset.url);
                     setImageBroken(false);
                   }}
-                  className={`rounded-full border px-3 py-1 text-xs transition-colors hover:border-primary hover:text-primary ${
+                  className={`cursor-pointer rounded-[4px] border px-3 py-1 text-xs transition-colors hover:border-primary hover:text-primary ${
                     thumbnail === preset.url
-                      ? "border-primary bg-primary/10 text-primary"
+                      ? "border-primary bg-primary/10 text-[#934B00] dark:text-primary font-semibold"
                       : "border-border text-muted-foreground"
                   }`}
                 >
@@ -234,7 +234,11 @@ export function EventForm({
           <Input id="ownerEmail" value={ownerEmail} readOnly disabled />
         </div>
 
-        <Button type="submit" className="w-full sm:w-auto" disabled={loading}>
+        <Button
+          type="submit"
+          className="h-10 w-full font-semibold shadow-xs sm:w-auto"
+          disabled={loading}
+        >
           {loading ? "Please wait..." : submitLabel}
         </Button>
     </form>

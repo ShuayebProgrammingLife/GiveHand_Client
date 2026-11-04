@@ -52,9 +52,11 @@ export default function CreateEventPage() {
   return (
     
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <Card>
+      <Card className="border border-border shadow-xs">
         <CardHeader>
-          <CardTitle className="text-2xl">Create a new event</CardTitle>
+          <CardTitle className="font-display text-2xl font-bold tracking-tight">
+            Create a new event
+          </CardTitle>
           <CardDescription>
             Organize a winter clothes drive, a blanket distribution or any
             community event and invite people to join.

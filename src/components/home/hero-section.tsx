@@ -41,14 +41,14 @@ function HeroImage() {
 
 function NextDrive({ event }: { event: EventItem | null | undefined }) {
   const box =
-    "flex min-w-0 items-center gap-2 rounded-[4px] border border-border bg-card p-3 text-sm text-card-foreground";
+    "flex min-w-0 items-center gap-2 rounded-[4px] border border-border bg-card p-3 text-sm text-card-foreground transition-colors hover:border-primary";
 
   if (event === undefined) {
     return <Skeleton className="h-12 w-full bg-muted" />;
   }
   if (event === null) {
     return (
-      <Link href="/create-event" className={cn(box, "hover:border-ring")}>
+      <Link href="/create-event" className={box}>
         <Navigation className="h-[18px] w-[18px] shrink-0 text-primary" />
         <span>No drive is scheduled yet. Start one in your area.</span>
       </Link>
@@ -57,7 +57,7 @@ function NextDrive({ event }: { event: EventItem | null | undefined }) {
   return (
     <Link
       href={`/events/${event._id}`}
-      className={cn(box, "hover:border-ring")}
+      className={box}
     >
       <Navigation className="h-[18px] w-[18px] shrink-0 text-primary" />
       <span className="truncate">

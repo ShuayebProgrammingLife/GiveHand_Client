@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
+
 import {
   CalendarPlus,
   HandHeart,
@@ -10,6 +11,9 @@ import {
   LogOut,
   TicketCheck,
 } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
 import { authClient } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { QuiltStrip } from "@/components/quilt-strip";
@@ -62,8 +66,11 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-background">
       <nav className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-4 lg:px-12">
         {/* Left: logo */}
-        <Link href="/" className="flex items-center gap-2 justify-self-start">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0E1E33] text-primary">
+        <Link
+          href="/"
+          className="group flex cursor-pointer items-center gap-2 justify-self-start transition-colors hover:text-primary"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0E1E33] text-primary transition-transform duration-200 group-hover:scale-105">
             <HandHeart className="h-5 w-5" />
           </span>
           <span className="hidden font-display text-2xl font-bold tracking-tight sm:inline">
@@ -74,10 +81,10 @@ export function Navbar() {
         {/* Middle: navlink */}
         <Link
           href="/events"
-          className={`px-2 py-2 text-sm transition-colors sm:text-base ${
+          className={`cursor-pointer px-2 py-2 text-sm transition-colors sm:text-base ${
             pathname.startsWith("/events")
-              ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8"
-              : "font-medium text-muted-foreground hover:text-foreground"
+              ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8 hover:text-primary"
+              : "font-medium text-muted-foreground hover:text-primary"
           }`}
         >
           Upcoming Events
@@ -147,7 +154,7 @@ export function Navbar() {
               <Button
                 variant="outline"
                 size="sm"
-                className="shadow-none"
+                className="border-destructive/40 text-destructive shadow-none transition-colors hover:border-destructive hover:bg-destructive/10 hover:text-destructive dark:border-destructive/40 dark:hover:border-destructive dark:hover:bg-destructive/20"
                 onClick={handleLogout}
                 aria-label="Logout"
               >
@@ -158,7 +165,10 @@ export function Navbar() {
           ) : (
             <Link
               href="/login"
-              className={buttonVariants({ variant: "outline" })}
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "shadow-none transition-colors",
+              )}
             >
               Login
             </Link>

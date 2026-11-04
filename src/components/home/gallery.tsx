@@ -48,8 +48,8 @@ function GalleryItem({
 }) {
   const [failed, setFailed] = useState(false);
   return (
-    <figure>
-      <div className="aspect-[4/3] overflow-hidden rounded-md border bg-muted">
+    <figure className="rounded-md transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+      <div className="aspect-[4/3] overflow-hidden rounded-md border border-border bg-muted transition-colors hover:border-primary/60">
         {failed ? (
           <div className="flex h-full w-full items-center justify-center bg-[#0E1E33] text-[#8DB1DE]">
             <ImageOff className="h-10 w-10" />

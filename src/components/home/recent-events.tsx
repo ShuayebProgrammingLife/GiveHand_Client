@@ -59,10 +59,10 @@ export function RecentEvents() {
 
   const tab = (active: boolean) =>
     cn(
-      "rounded-md border px-4 py-2 text-sm font-medium transition-colors",
+      "cursor-pointer rounded-md px-4 py-2 text-sm transition-colors",
       active
-        ? "border-foreground bg-foreground text-background"
-        : "bg-card text-foreground hover:bg-muted",
+        ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8 hover:text-primary"
+        : "font-medium text-muted-foreground hover:text-primary hover:underline hover:decoration-primary hover:decoration-2 hover:underline-offset-8",
     );
 
   return (

@@ -54,9 +54,11 @@ const LoginPage = () => {
 
   return (
         <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-10">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md border border-border shadow-xs">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Welcome back</CardTitle>
+          <CardTitle className="font-display text-2xl font-bold tracking-tight">
+            Welcome back
+          </CardTitle>
           <CardDescription>
             Login to join events and make a difference
           </CardDescription>
@@ -81,7 +83,7 @@ const LoginPage = () => {
                 <button
                   type="button"
                   onClick={() => toast.info("This feature is coming soon")}
-                  className="text-xs font-medium text-primary hover:underline"
+                  className="cursor-pointer text-xs font-medium text-[#934B00] transition-colors hover:underline hover:text-[#7A3E00] dark:text-primary dark:hover:text-[#F7B267]"
                 >
                   Forgot password?
                 </button>
@@ -93,7 +95,11 @@ const LoginPage = () => {
               />
             </div>
 
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button
+              type="submit"
+              className="h-10 w-full font-semibold shadow-xs"
+              disabled={loading}
+            >
               {loading ? "Signing in..." : "Sign in"}
             </Button>
           </form>
@@ -109,7 +115,10 @@ const LoginPage = () => {
 
         <CardFooter className="justify-center text-sm text-muted-foreground">
           New to GiveHand?&nbsp;
-          <Link href="/register" className="font-medium text-primary hover:underline">
+          <Link
+            href="/register"
+            className="font-semibold text-[#934B00] transition-colors hover:underline hover:text-[#7A3E00] dark:text-primary dark:hover:text-[#F7B267]"
+          >
             Register here
           </Link>
         </CardFooter>

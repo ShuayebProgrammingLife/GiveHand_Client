@@ -16,14 +16,21 @@ export function EventCard({
   action?: React.ReactNode;
 }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-md border bg-card text-card-foreground transition-colors hover:border-foreground/60">
-      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-muted">
+    <article className="group flex h-full flex-col overflow-hidden rounded-md border border-border bg-card text-card-foreground shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10">
+      <Link
+        href={`/events/${event._id}`}
+        className="relative block aspect-[16/10] w-full shrink-0 overflow-hidden bg-muted"
+        aria-label={`View details for ${event.title}`}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={event.thumbnail}
           alt={event.title}
           loading="lazy"
-          className={cn("h-full w-full object-cover", ended && "grayscale")}
+          className={cn(
+            "h-full w-full object-cover transition-transform duration-300 group-hover:scale-105",
+            ended && "grayscale",
+          )}
         />
         <span className="absolute left-3 top-3 rounded-[2px] bg-[#0E1E33] px-2.5 py-1 text-xs font-semibold text-white">
           {event.eventType}
@@ -33,12 +40,17 @@ export function EventCard({
             Ended
           </span>
         )}
-      </div>
+      </Link>
 
       <div className="flex flex-1 flex-col gap-4 p-5">
         <div>
           <h3 className="line-clamp-2 min-h-14 font-display text-xl font-bold leading-7">
-            {event.title}
+            <Link
+              href={`/events/${event._id}`}
+              className="transition-colors hover:text-primary"
+            >
+              {event.title}
+            </Link>
           </h3>
           <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
@@ -55,11 +67,11 @@ export function EventCard({
           </ul>
         </div>
 
-        <p className="line-clamp-2 rounded-sm border bg-muted/60 p-3 text-sm leading-5">
+        <p className="line-clamp-2 rounded-sm border border-border bg-muted/60 p-3 text-sm leading-5">
           {event.description}
         </p>
 
-        <div className="mt-auto flex items-center justify-between gap-3 border-t pt-3">
+        <div className="mt-auto flex items-center justify-between gap-3 border-t border-border pt-3">
           <div className="min-w-0">
             <p className="text-xs text-muted-foreground">Organized by</p>
             <p className="truncate text-sm font-medium">{event.creatorEmail}</p>
@@ -68,7 +80,7 @@ export function EventCard({
             href={`/events/${event._id}`}
             className={cn(
               buttonVariants({ variant: "outline", size: "sm" }),
-              "shrink-0 shadow-none",
+              "shrink-0 font-medium shadow-none",
             )}
           >
             View Event

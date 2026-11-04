@@ -12,7 +12,7 @@ import { EventCard, EventCardSkeleton } from "@/components/event-card";
 type Result = { key: string; events: EventItem[]; error: boolean };
 
 const selectClass =
-  "h-9 rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring";
+  "h-9 cursor-pointer rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 function EventsView() {
   const router = useRouter();
@@ -98,16 +98,16 @@ function EventsView() {
   const hasFilters = Boolean(type || search);
 
   const filterButton = (active: boolean) =>
-    `rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
+    `cursor-pointer px-4 py-1.5 text-sm transition-colors ${
       active
-        ? "border-primary bg-primary text-primary-foreground"
-        : "border-border text-muted-foreground hover:border-primary hover:text-primary"
+        ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8 hover:text-primary"
+        : "font-medium text-muted-foreground hover:text-primary hover:underline hover:decoration-primary hover:decoration-2 hover:underline-offset-8"
     }`;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl sm:leading-tight">
           Upcoming Events
         </h1>
         <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">
@@ -175,7 +175,10 @@ function EventsView() {
           <p className="mt-1 text-sm text-muted-foreground">
             Please check your connection and try again.
           </p>
-          <Button className="mt-4" onClick={() => router.refresh()}>
+          <Button
+            className="mt-4 font-semibold shadow-xs"
+            onClick={() => router.refresh()}
+          >
             Try again
           </Button>
         </div>
@@ -191,7 +194,7 @@ function EventsView() {
           {hasFilters && (
             <Button
               variant="outline"
-              className="mt-4"
+              className="mt-4 font-medium shadow-none"
               onClick={() => {
                 setSearchInput("");
                 router.replace("/events", { scroll: false });

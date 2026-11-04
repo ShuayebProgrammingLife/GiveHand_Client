@@ -62,9 +62,11 @@ const RegisterPage = () => {
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-10">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md border border-border shadow-xs">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Create your account</CardTitle>
+          <CardTitle className="font-display text-2xl font-bold tracking-tight">
+            Create your account
+          </CardTitle>
           <CardDescription>
             Join GiveHand and start helping your community
           </CardDescription>
@@ -116,7 +118,11 @@ const RegisterPage = () => {
               </p>
             </div>
 
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button
+              type="submit"
+              className="h-10 w-full font-semibold shadow-xs"
+              disabled={loading}
+            >
               {loading ? "Creating account..." : "Register"}
             </Button>
           </form>
@@ -124,7 +130,10 @@ const RegisterPage = () => {
 
         <CardFooter className="justify-center text-sm text-muted-foreground">
           Already have an account?&nbsp;
-          <Link href="/login" className="font-medium text-primary hover:underline">
+          <Link
+            href="/login"
+            className="font-semibold text-[#934B00] transition-colors hover:underline hover:text-[#7A3E00] dark:text-primary dark:hover:text-[#F7B267]"
+          >
             Login here
           </Link>
         </CardFooter>

@@ -23,6 +23,7 @@ export function ThemeToggle() {
       size="icon"
       aria-label="Toggle theme"
       onClick={toggle}
+      className="cursor-pointer rounded-md transition-all hover:bg-muted/80 hover:text-primary active:scale-95"
     >
       {mounted && resolvedTheme === "dark" ? (
         <Sun className="h-5 w-5" />

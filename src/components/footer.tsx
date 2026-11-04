@@ -43,29 +43,26 @@ const causeLinks = [
 ];
 
 const linkClass =
-  "text-sm text-muted-foreground transition-colors hover:text-primary";
+  "text-sm text-muted-foreground transition-colors hover:text-[#934B00] dark:hover:text-primary";
 
-  const socialClass =
-    "flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground";
+const socialClass =
+  "flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground active:scale-95";
 
 const headingClass =
-  "mb-3 text-base font-semibold text-foreground";
+  "mb-3 font-display text-base font-bold text-foreground";
 
-export function Footer (){
+export function Footer() {
   return (
     <footer className="mt-8 border-t-4 border-primary bg-muted text-muted-foreground">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         {/* 1. Brand */}
-        <div
-          className="rounded-xl
-        border border-border bg-card p-5 text-card-foreground"
-        >
-          <Link href="/" className="mb-3 flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0E1E33] text-primary">
+        <div className="rounded-xl border border-border bg-card p-5 text-card-foreground shadow-xs">
+          <Link href="/" className="group mb-3 flex items-center gap-2">
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0E1E33] text-primary transition-transform duration-200 group-hover:scale-105">
               <HandHeart className="h-5 w-5" />
             </span>
-            <span className="text-xl font-bold text-foreground">
-              Give<span className="text-orange-400">Hand</span>
+            <span className="font-display text-xl font-bold text-foreground">
+              Give<span className="text-primary">Hand</span>
             </span>
           </Link>
           <p className="text-sm leading-6 text-muted-foreground">

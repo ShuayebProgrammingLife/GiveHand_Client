@@ -73,7 +73,7 @@ export default function JoinedEventsPage() {
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl sm:leading-tight">
             Joined Events
           </h1>
           <p className="mt-2 text-muted-foreground">
@@ -125,7 +125,10 @@ export default function JoinedEventsPage() {
           <p className="mt-1 text-sm text-muted-foreground">
             Find an event you care about and join it.
           </p>
-          <Link href="/events" className={`${buttonVariants()} mt-4`}>
+          <Link
+            href="/events"
+            className={cn(buttonVariants(), "mt-4 font-semibold shadow-xs")}
+          >
             Browse upcoming events
           </Link>
         </div>
@@ -144,7 +147,7 @@ export default function JoinedEventsPage() {
                   !ended && (
                     <Button
                       variant="outline"
-                      className="w-full border-destructive text-destructive hover:bg-destructive/10 hover:text-destructive"
+                      className="w-full border-destructive/40 text-destructive font-medium shadow-none transition-colors hover:border-destructive hover:bg-destructive/10 hover:text-destructive dark:border-destructive/40 dark:hover:border-destructive dark:hover:bg-destructive/20"
                       onClick={() => handleCancel(item.eventId)}
                       disabled={busyId === item.eventId}
                     >

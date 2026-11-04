@@ -74,14 +74,17 @@ export default function ManageEventsPage() {
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl sm:leading-tight">
             Manage Events
           </h1>
           <p className="mt-2 text-muted-foreground">
             View, update or delete the events you have created.
           </p>
         </div>
-        <Link href="/create-event" className={buttonVariants()}>
+        <Link
+          href="/create-event"
+          className={cn(buttonVariants(), "font-semibold shadow-xs")}
+        >
           <CalendarPlus className="mr-2 h-4 w-4" />
           Create new event
         </Link>
@@ -130,14 +133,17 @@ export default function ManageEventsPage() {
                   <div className="grid grid-cols-2 gap-2">
                     <Link
                       href={`/manage-events/${event._id}/edit`}
-                      className={buttonVariants({ variant: "outline" })}
+                      className={cn(
+                        buttonVariants({ variant: "outline" }),
+                        "font-medium shadow-none",
+                      )}
                     >
                       <Pencil className="mr-2 h-4 w-4" />
                       Edit
                     </Link>
                     <Button
                       variant="outline"
-                      className="border-destructive text-destructive hover:bg-destructive/10 hover:text-destructive"
+                      className="border-destructive/40 text-destructive font-medium shadow-none transition-colors hover:border-destructive hover:bg-destructive/10 hover:text-destructive dark:border-destructive/40 dark:hover:border-destructive dark:hover:bg-destructive/20"
                       onClick={() => setToDelete(event)}
                     >
                       <Trash2 className="mr-2 h-4 w-4" />

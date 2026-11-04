@@ -27,8 +27,8 @@ const GoogleButton = () => {
     <Button
       type="button"
       variant="outline"
-      className ="w-full"
-      onClick={handleGoogle} 
+      className="h-10 w-full border-border bg-card font-medium text-foreground transition-colors hover:border-border hover:bg-muted hover:text-foreground active:scale-[0.99]"
+      onClick={handleGoogle}
       disabled={loading}
     >
       <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">

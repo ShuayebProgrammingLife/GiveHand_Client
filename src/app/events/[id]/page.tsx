@@ -160,7 +160,7 @@ export default function EventDetailsPage() {
     return (
       <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center">
         <CalendarX2 className="mb-4 h-12 w-12 text-muted-foreground" />
-        <h1 className="text-2xl font-bold">
+        <h1 className="font-display text-2xl font-bold">
           {result?.error === "network"
             ? "Could not load this event"
             : "Event not found"}
@@ -170,7 +170,10 @@ export default function EventDetailsPage() {
             ? "Please check your connection and try again."
             : "This event may have been removed or the link is incorrect."}
         </p>
-        <Link href="/events" className={`${buttonVariants()} mt-6`}>
+        <Link
+          href="/events"
+          className={cn(buttonVariants(), "mt-6 font-semibold shadow-xs")}
+        >
           Browse upcoming events
         </Link>
       </div>
@@ -183,20 +186,20 @@ export default function EventDetailsPage() {
     <div className="mx-auto max-w-6xl px-4 py-10">
       <Link
         href="/events"
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-[#934B00] dark:hover:text-primary"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to events
       </Link>
 
-      <div className="relative h-72 w-full overflow-hidden rounded-xl bg-muted sm:h-96">
+      <div className="relative h-72 w-full overflow-hidden rounded-xl border border-border bg-muted sm:h-96">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={event.thumbnail}
           alt={event.title}
           className="h-full w-full object-cover"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-accent-foreground shadow">
+        <span className="absolute left-4 top-4 rounded-[4px] bg-[#0E1E33] px-3 py-1.5 text-xs font-semibold text-white shadow">
           {event.eventType}
         </span>
       </div>
@@ -204,18 +207,18 @@ export default function EventDetailsPage() {
       <div className="mt-8 grid gap-8 lg:grid-cols-3">
         {/* Left: title and description */}
         <div className="lg:col-span-2">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl sm:leading-tight">
             {event.title}
           </h1>
-          <h2 className="mb-2 mt-6 text-xl font-semibold">About this event</h2>
+          <h2 className="font-display mb-2 mt-6 text-xl font-bold">About this event</h2>
           <p className="whitespace-pre-line leading-7 text-muted-foreground">
             {event.description}
           </p>
         </div>
 
         {/* Right: details and join */}
-        <aside className="h-fit rounded-xl border bg-card p-5 shadow-sm lg:sticky lg:top-24">
-          <h2 className="mb-4 text-lg font-semibold">Event details</h2>
+        <aside className="h-fit rounded-xl border border-border bg-card p-5 shadow-xs lg:sticky lg:top-24">
+          <h2 className="font-display mb-4 text-lg font-bold">Event details</h2>
           <ul className="space-y-4 text-sm">
             <li className="flex gap-3">
               <CalendarDays className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -253,20 +256,20 @@ export default function EventDetailsPage() {
 
           <div className="mt-6">
             {ended ? (
-              <Button className="w-full" disabled>
+              <Button className="h-10 w-full font-semibold" disabled>
                 This event has ended
               </Button>
             ) : statusLoading ? (
-              <Skeleton className="h-9 w-full" />
+              <Skeleton className="h-10 w-full" />
             ) : joined ? (
               <div className="space-y-3">
-                <p className="flex items-center justify-center gap-2 rounded-md bg-primary/10 py-2 text-sm font-medium text-primary">
+                <p className="flex items-center justify-center gap-2 rounded-md bg-primary/10 py-2.5 text-sm font-medium text-primary">
                   <CheckCircle2 className="h-4 w-4" />
                   You have joined this event
                 </p>
                 <Button
                   variant="outline"
-                  className="w-full border-destructive text-destructive hover:bg-destructive/10 hover:text-destructive"
+                  className="h-10 w-full border-destructive/40 text-destructive font-semibold transition-colors hover:border-destructive hover:bg-destructive/10 hover:text-destructive dark:border-destructive/40 dark:hover:border-destructive dark:hover:bg-destructive/20"
                   onClick={handleCancel}
                   disabled={busy}
                 >
@@ -274,7 +277,11 @@ export default function EventDetailsPage() {
                 </Button>
               </div>
             ) : (
-              <Button className="w-full" onClick={handleJoin} disabled={busy}>
+              <Button
+                className="h-10 w-full font-semibold shadow-xs"
+                onClick={handleJoin}
+                disabled={busy}
+              >
                 {busy ? "Please wait..." : "Join Event"}
               </Button>
             )}

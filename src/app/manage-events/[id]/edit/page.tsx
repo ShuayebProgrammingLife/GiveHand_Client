@@ -13,6 +13,7 @@ import { toLocalInput } from "@/lib/format";
 import { EventForm } from "@/components/event-form";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 
 import {
@@ -79,14 +80,14 @@ export default function EditEventPage() {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <Link
         href="/manage-events"
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-[#934B00] dark:hover:text-primary"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to manage events
       </Link>
 
       {stillLoading ? (
-        <Card>
+        <Card className="border border-border">
           <CardContent className="space-y-4 pt-6">
             <Skeleton className="h-9 w-full" />
             <Skeleton className="h-9 w-full" />
@@ -97,29 +98,37 @@ export default function EditEventPage() {
       ) : !event ? (
         <div className="flex flex-col items-center py-20 text-center">
           <ShieldAlert className="mb-3 h-10 w-10 text-muted-foreground" />
-          <h1 className="text-2xl font-bold">Event not found</h1>
+          <h1 className="font-display text-2xl font-bold">Event not found</h1>
           <p className="mt-2 text-muted-foreground">
             This event may have been deleted.
           </p>
-          <Link href="/manage-events" className={`${buttonVariants()} mt-5`}>
+          <Link
+            href="/manage-events"
+            className={cn(buttonVariants(), "mt-5 font-semibold shadow-xs")}
+          >
             Go to my events
           </Link>
         </div>
       ) : !isOwner ? (
         <div className="flex flex-col items-center py-20 text-center">
           <ShieldAlert className="mb-3 h-10 w-10 text-destructive" />
-          <h1 className="text-2xl font-bold">You cannot edit this event</h1>
+          <h1 className="font-display text-2xl font-bold">You cannot edit this event</h1>
           <p className="mt-2 text-muted-foreground">
             Only the person who created an event can update it.
           </p>
-          <Link href="/manage-events" className={`${buttonVariants()} mt-5`}>
+          <Link
+            href="/manage-events"
+            className={cn(buttonVariants(), "mt-5 font-semibold shadow-xs")}
+          >
             Go to my events
           </Link>
         </div>
       ) : (
-        <Card>
+        <Card className="border border-border shadow-xs">
           <CardHeader>
-            <CardTitle className="text-2xl">Update event</CardTitle>
+            <CardTitle className="font-display text-2xl font-bold tracking-tight">
+              Update event
+            </CardTitle>
             <CardDescription>
               Change the details below and save. People who joined will see the
               updated information.
