@@ -16,7 +16,7 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "GiveHand | Give a hand, warm a heart",
   description:
-    "GiveHand is a community platform to create, join and track winter clothes, blanket and other social service events.",
+    "GiveHand is a community platform to create, join and track relief campaigns, tree plantations, cleanups and other social development events.",
 };
 
 const themeScript = `

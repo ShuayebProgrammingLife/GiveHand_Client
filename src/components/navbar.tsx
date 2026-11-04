@@ -81,11 +81,10 @@ export function Navbar() {
         {/* Middle: navlink */}
         <Link
           href="/events"
-          className={`cursor-pointer px-2 py-2 text-sm transition-colors sm:text-base ${
-            pathname.startsWith("/events")
-              ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8 hover:text-primary"
-              : "font-medium text-muted-foreground hover:text-primary"
-          }`}
+          className={`cursor-pointer px-2 py-2 text-sm transition-colors sm:text-base ${pathname.startsWith("/events")
+            ? "font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-8 hover:text-primary"
+            : "font-medium text-muted-foreground hover:text-primary"
+            }`}
         >
           Upcoming Events
         </Link>
@@ -141,7 +140,7 @@ export function Navbar() {
                   ))}
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
-                    className="cursor-pointer text-destructive focus:text-destructive"
+                    className="cursor-pointer text-destructive focus:text-destructive dark:focus:text-white"
                     onClick={handleLogout}
                   >
                     <LogOut className="mr-2 h-4 w-4" />
@@ -154,7 +153,7 @@ export function Navbar() {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-destructive/40 text-destructive shadow-none transition-colors hover:border-destructive hover:bg-destructive/10 hover:text-destructive dark:border-destructive/40 dark:hover:border-destructive dark:hover:bg-destructive/20"
+                className="border-destructive/40 text-destructive shadow-none transition-colors hover:border-destructive hover:bg-destructive/10 hover:text-destructive dark:border-destructive/40 dark:hover:border-destructive dark:hover:bg-destructive/20 dark:hover:text-primary"
                 onClick={handleLogout}
                 aria-label="Logout"
               >

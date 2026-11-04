@@ -23,7 +23,7 @@ export function HowItWorks() {
     <section className="w-full border-b bg-muted py-16 lg:py-24">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-12 px-6 lg:px-12">
         <SectionHeading
-          title="How grassroots winter drives happen"
+          title="How grassroots community drives happen"
           subtitle="Three steps from wanting to help to showing up."
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">

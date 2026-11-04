@@ -114,7 +114,7 @@ export default function ManageEventsPage() {
             You have not created any event yet
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Start a winter clothes drive or any community event today.
+            Start a relief drive, a plantation, or any community event today.
           </p>
           <Link href="/create-event" className={`${buttonVariants()} mt-4`}>
             Create your first event

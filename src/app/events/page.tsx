@@ -111,8 +111,8 @@ function EventsView() {
           Upcoming Events
         </h1>
         <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">
-          Find a winter clothes drive, a blanket distribution or any community
-          event near you and be part of something good.
+          Find a relief campaign, a health camp, a tree plantation or any
+          community event near you and be part of something good.
         </p>
       </div>
 

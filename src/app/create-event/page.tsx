@@ -58,7 +58,7 @@ export default function CreateEventPage() {
             Create a new event
           </CardTitle>
           <CardDescription>
-            Organize a winter clothes drive, a blanket distribution or any
+            Organize a relief drive, a tree plantation, a cleanup or any
             community event and invite people to join.
           </CardDescription>
         </CardHeader>

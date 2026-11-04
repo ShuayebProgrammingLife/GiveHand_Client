@@ -67,7 +67,7 @@ export function Footer() {
           </Link>
           <p className="text-sm leading-6 text-muted-foreground">
             GiveHand connects kind-hearted people with those in need. Organize
-            winter clothes drives, join community events and spread warmth
+            relief campaigns, join community events and spread kindness
             across your city.
           </p>
           <div className="mt-4 flex items-center gap-3">
@@ -143,8 +143,8 @@ export function Footer() {
         <div className="rounded-xl border border-border bg-card p-5 text-card-foreground">
           <h3 className={headingClass}>Community Spirit</h3>
           <p className="mb-3 text-sm leading-6 text-muted-foreground">
-            Small acts of kindness add up. Together we can make every winter
-            warmer for families who need it most.
+            Small acts of kindness add up. Together we can build stronger
+            communities and support families who need it most.
           </p>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">

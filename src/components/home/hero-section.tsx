@@ -29,10 +29,10 @@ function HeroImage() {
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src="/hero.png"
-          alt="Volunteers packing warm blankets for winter distribution in Dhaka"
+          src="/hero.jpeg"
+          alt="Volunteers organizing community relief and supplies"
           onError={() => setFailed(true)}
-          className="block aspect-[16/11] w-full object-cover"
+          className="block w-full object-contain"
         />
       )}
     </div>
@@ -103,14 +103,14 @@ export function HeroSection() {
 
   const metrics = stats
     ? [
-        {
-          label: "Events created",
-          value: stats.upcomingEvents + stats.completedEvents,
-        },
-        { label: "Upcoming events", value: stats.upcomingEvents },
-        { label: "Events completed", value: stats.completedEvents },
-        { label: "People joined", value: stats.totalParticipants },
-      ]
+      {
+        label: "Events created",
+        value: stats.upcomingEvents + stats.completedEvents,
+      },
+      { label: "Upcoming events", value: stats.upcomingEvents },
+      { label: "Events completed", value: stats.completedEvents },
+      { label: "People joined", value: stats.totalParticipants },
+    ]
     : null;
 
   return (
@@ -122,17 +122,17 @@ export function HeroSection() {
             <div className="flex min-w-0 flex-col gap-6 lg:col-span-7">
               <p className="inline-flex w-fit items-center gap-2 rounded-[4px] border border-border bg-muted px-3 py-1.5 text-sm font-medium text-muted-foreground">
                 <span className="h-2 w-2 rounded-[2px] bg-primary" />
-                Dhaka winter relief network
+                Grassroots community & social action network
               </p>
 
               <h1 className="font-display text-4xl font-extrabold leading-10 tracking-[-0.04em] text-foreground sm:text-5xl sm:leading-[56px] lg:text-[64px] lg:leading-[68px]">
-                Bringing warmth to every corner of Dhaka this winter.
+                Lending a helping hand to every corner of our community.
               </h1>
 
               <p className="max-w-xl text-lg leading-8 text-muted-foreground">
-                Join grassroots volunteers and neighborhood organizers
-                distributing blankets, heavy sweaters, hot meals and primary
-                health checks to rough sleepers and families in need.
+                Join grassroots volunteers and neighborhood organizers hosting
+                food drives, health camps, tree plantations, cleanups, and
+                relief for families in need.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -140,7 +140,7 @@ export function HeroSection() {
                   href="/events"
                   className={cn(buttonVariants(), primaryHeroBtn)}
                 >
-                  Explore winter events
+                  Explore upcoming events
                 </Link>
                 <Link
                   href="/create-event"
