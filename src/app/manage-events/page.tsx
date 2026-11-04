@@ -7,6 +7,7 @@ import { CalendarPlus, Pencil, Trash2 } from "lucide-react";
 import { apiFetch } from "@/lib/api";
 import type { EventItem } from "@/lib/types";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { EventCard, EventCardSkeleton } from "@/components/event-card";
 
 import {

@@ -19,6 +19,7 @@ import { authClient } from "@/lib/auth-client";
 import { apiFetch, publicFetch } from "@/lib/api";
 import type { EventItem } from "@/lib/types";
 import { formatEventDate, formatEventTime } from "@/lib/format";
+import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
